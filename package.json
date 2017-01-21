@@ -1,8 +1,11 @@
 {
   "dependencies": {
+    "basic-auth-connect": "^1.0.0",
+    "compression": "^1.6.2",
     "connect": "^3.5.0",
     "express": "~4.14.0",
-    "morgan": "^1.7.0"
+    "morgan": "^1.7.0",
+    "serve-static": "^1.11.1"
   },
   "devDependencies": {
     "apache-server-configs": "^2.7.1",
