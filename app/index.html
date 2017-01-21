@@ -43,8 +43,7 @@
     material.blue-orange.min.css
     material.purple-indigo.min.css
     -->
-    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
-
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-deep_orange.min.css" />
     <!-- Material Design icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
@@ -282,7 +281,10 @@
         </footer>
       </main>
     </div>
-
+    <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
     <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
     <!-- build:js scripts/main.min.js -->
     <script src="scripts/main.js"></script>
@@ -298,5 +300,34 @@
       ga('send', 'pageview');
     </script>
     <!-- Built with love using Web Starter Kit -->
+
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '170269703417592',
+          xfbml      : true,
+          version    : 'v2.8'
+        });
+        FB.AppEvents.logPageView();
+        FB.api(
+          '/tohoku.kanagata',
+          'GET',
+          {
+            "fields":"app_id,access_token,feed{message,story,link,likes,full_picture,name,permalink_url,source,updated_time}",
+            'access_token': '170269703417592|mIDToPYYB1KGV46HhZnhuFbM-U0'
+          },
+          function(response) {
+              console.log(response);
+          }
+        );
+      };
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
   </body>
 </html>

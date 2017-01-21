@@ -20,11 +20,13 @@
 (function() {
   'use strict';
 
-  fetch("http://script.googleusercontent.com/macros/echo?user_content_key=fqhI9N063RmY86I-mUY7c2YrZypRubuGoCmOF-GSFje5W7TocrjnETDANa-zK0EuhhwIEevYtUN6Qsi2WQsU3MmXVcY_fV6xm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnH3LpSC7Wgi1-U87Un5EzB5X4qzttsrkq4f7lxGDOxUwX9_2e1yvKlBCfG8xVj619Q&lib=MBUsMvHzDWvFwK-ndlmD69Obhx8qksnKj").then(function(response) {
-  return response.json();
-}).then(function(json) {
-  console.log(json);
-});
+  fetch('https://script.google.com/macros/s/AKfycbxhy9mroqGpOnMT3JLUSpmdO4FPocOWdYcJY77fRSvpsfSQwrFQ/exec', {
+    mode: 'cors'
+  }).then(function(response) {
+    return response.json();
+  }).then(function(json) {
+    console.log(json);
+  });
 
   // Check to make sure service workers are supported in the current browser,
   // and that the current page is accessed from a secure origin. Using a
