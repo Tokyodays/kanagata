@@ -6,6 +6,7 @@ dependencies:
   post:
     - npm install -g gulp
     - npm install
+    - npm rebuild node-sass
     - gulp
 
 deployment:
