@@ -1,0 +1,20 @@
+machine:
+  node:
+    version: v6.9.4
+
+dependencies:
+  post:
+    - npm install -g gulp
+    - npm install -g bower
+    - bower install
+    - gulp build
+
+deployment:
+  production:
+    branch: master
+    heroku:
+      appname: kanagata
+  staging:
+    branch: master
+    heroku:
+      appname: kanagata
