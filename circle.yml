@@ -4,9 +4,8 @@ machine:
 
 dependencies:
   post:
-    #
-      - npm rebuild node-sass
-      - gulp
+    - npm rebuild node-sass
+    - gulp
 
 deployment:
   production:
