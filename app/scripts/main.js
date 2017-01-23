@@ -81,9 +81,12 @@
   }
 
   // Your custom JavaScript goes here
-  new GMaps({
-    div: '#map',
-    lat: -12.043333,
-    lng: -77.028333
-  });
+          window.onload = function(){
+            var map = new GMaps({
+                div: "#map",
+                lat: 35.710285,
+                lng: 139.77714,
+                zoom: 15,
+            });
+        };
 })();
