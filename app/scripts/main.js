@@ -83,12 +83,14 @@
     });
 
     window.onload = function(){
-        var map = new GMaps({
-            div: "#googlemap",
-            lat: 35.710285,
-            lng: 139.77714,
-            zoom: 15,
-        });
-        console.log(map);
+      var map = new GMaps({
+          div: "#googlemap",
+          lat: 35.710285,
+          lng: 139.77714,
+          zoom: 15,
+      });
+      console.log(map);
     };
+
+    riot.mount('*')
 })();
