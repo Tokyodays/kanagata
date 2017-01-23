@@ -14,13 +14,16 @@
  * limitations under the License.
  */
 
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
+
 /*
 Note: any .css or .scss files included in the 'styles' directory
 will be correctly compiled during `gulp serve` and `gulp`
  */
 
 html, body {
-  font-family: 'Roboto', 'Helvetica', sans-serif;
+  font-family: 'Noto Sans Japanese', 'Roboto', 'Helvetica', sans-serif;
+  font-weight: 100;
   margin: 0;
   padding: 0;
 }
@@ -110,7 +113,7 @@ html, body {
   margin-bottom: 48px;
 }
 .mdl-demo section.section--center {
-  max-width: 860px;
+  max-width: 100%;
 }
 .mdl-demo #features section.section--center {
   max-width: 620px;
@@ -210,4 +213,29 @@ html, body {
 }
 .mdl-demo .mdl-menu__container {
   z-index: 99;
+}
+
+.mdl-layout__tab-bar {
+    padding: 0;
+    padding-left: 16px;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+}
+
+.mdl-layout__tab-bar-button {
+  display: none;
+}
+.mdl-layout__header-row {
+  padding-left: 40px;
+}
+.demo-card-square.mdl-card {
+  width: 100%;
+  height: 320px;
+}
+.demo-card-square .mdl-card__title {
+  color: #fff;
+  background:
+    url("https://scontent.xx.fbcdn.net/v/t1.0-0/p180x540/947011_587109311323505_598450549_n.jpg?oh=3bdf91304417b105cbb012e8691bc100&oe=5920FBAC") center center no-repeat #46B6AC;
+  background-size: cover;
 }
