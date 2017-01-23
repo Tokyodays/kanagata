@@ -239,3 +239,23 @@ html, body {
     url("https://scontent.xx.fbcdn.net/v/t1.0-0/p180x540/947011_587109311323505_598450549_n.jpg?oh=3bdf91304417b105cbb012e8691bc100&oe=5920FBAC") center center no-repeat #46B6AC;
   background-size: cover;
 }
+.map_wrapper {
+  max-width: 100%;
+  min-width: 280px;
+  margin: 0 auto;
+  padding: 0;
+}
+#googlemap {
+    position: relative;
+    padding-bottom: 56.25%;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden;
+}
+#googlemap > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+}

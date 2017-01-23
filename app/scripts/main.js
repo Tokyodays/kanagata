@@ -20,14 +20,6 @@
 (function() {
   'use strict';
 
-  fetch('https://script.google.com/macros/s/AKfycbxhy9mroqGpOnMT3JLUSpmdO4FPocOWdYcJY77fRSvpsfSQwrFQ/exec', {
-    mode: 'cors'
-  }).then(function(response) {
-    return response.json();
-  }).then(function(json) {
-    console.log(json);
-  });
-
   // Check to make sure service workers are supported in the current browser,
   // and that the current page is accessed from a secure origin. Using a
   // service worker from an insecure origin will trigger JS console errors. See
@@ -81,12 +73,22 @@
   }
 
   // Your custom JavaScript goes here
-          window.onload = function(){
-            var map = new GMaps({
-                div: "#map",
-                lat: 35.710285,
-                lng: 139.77714,
-                zoom: 15,
-            });
-        };
+
+    fetch('https://script.google.com/macros/s/AKfycbxhy9mroqGpOnMT3JLUSpmdO4FPocOWdYcJY77fRSvpsfSQwrFQ/exec', {
+      mode: 'cors'
+    }).then(function(response) {
+      return response.json();
+    }).then(function(json) {
+      console.log(json);
+    });
+
+    window.onload = function(){
+        var map = new GMaps({
+            div: "#googlemap",
+            lat: 35.710285,
+            lng: 139.77714,
+            zoom: 15,
+        });
+        console.log(map);
+    };
 })();
