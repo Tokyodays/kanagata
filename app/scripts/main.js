@@ -73,24 +73,59 @@
   }
 
   // Your custom JavaScript goes here
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
 
-    fetch('https://script.google.com/macros/s/AKfycbxhy9mroqGpOnMT3JLUSpmdO4FPocOWdYcJY77fRSvpsfSQwrFQ/exec', {
-      mode: 'cors'
-    }).then(function(response) {
-      return response.json();
-    }).then(function(json) {
-      console.log(json);
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '170269703417592',
+      xfbml      : true,
+      version    : 'v2.8'
     });
+    FB.AppEvents.logPageView();
+    FB.api(
+      '/tohoku.kanagata',
+      'GET',
+      {
+        "fields":"app_id,access_token,feed{message,story,link,likes,full_picture,name,permalink_url,source,updated_time}",
+        'access_token': '170269703417592|mIDToPYYB1KGV46HhZnhuFbM-U0'
+      },
+      function(response) {
+          console.log(response);
+      }
+    );
+  };
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
 
-    window.onload = function(){
-      var map = new GMaps({
-          div: "#googlemap",
-          lat: 35.710285,
-          lng: 139.77714,
-          zoom: 15,
-      });
-      console.log(map);
-    };
+  fetch('https://script.google.com/macros/s/AKfycbxhy9mroqGpOnMT3JLUSpmdO4FPocOWdYcJY77fRSvpsfSQwrFQ/exec', {
+    mode: 'cors'
+  }).then(function(response) {
+    return response.json();
+  }).then(function(json) {
+    console.log(json);
+  });
 
-    riot.mount('*')
+  window.onload = function(){
+    var map = new GMaps({
+      div: "#googlemap",
+      lat: 35.710285,
+      lng: 139.77714,
+      zoom: 15,
+    });
+  };
+
+
+  riot.compile(function() {
+    riot.mount('*');
+  })
 })();
