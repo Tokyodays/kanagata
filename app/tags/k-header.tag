@@ -9,20 +9,20 @@
         <div class="mdl-layout-spacer"></div>
         <!-- Navigation. We hide it in small screens. -->
         <nav class="mdl-navigation mdl-layout--large-screen-only">
-          <a class="mdl-navigation__link" href="#overview">投稿一覧</a>
-          <a class="mdl-navigation__link" href="#list">会員名簿一覧</a>
-          <a class="mdl-navigation__link" href="#maps">工場マップ</a>
-          <a class="mdl-navigation__link" href="">工業会について</a>
+          <a class="mdl-navigation__link" href="/">投稿一覧</a>
+          <a class="mdl-navigation__link" href="#/list/">会員名簿一覧</a>
+          <a class="mdl-navigation__link" href="#/maps/">工場マップ</a>
+          <a class="mdl-navigation__link" href="#/aboutus/">工業会について</a>
         </nav>
       </div>
     </header>
     <div class="mdl-layout__drawer">
       <span class="mdl-layout-title">東北金型工業会</span>
       <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="#overview">投稿一覧</a>
-        <a class="mdl-navigation__link" href="#list">会員名簿一覧</a>
-        <a class="mdl-navigation__link" href="#maps">工場マップ</a>
-        <a class="mdl-navigation__link" href="">工業会について</a>
+        <a class="mdl-navigation__link" href="/">投稿一覧</a>
+        <a class="mdl-navigation__link" href="#/list/">会員名簿一覧</a>
+        <a class="mdl-navigation__link" href="#/maps/">工場マップ</a>
+        <a class="mdl-navigation__link" href="#/aboutus/">工業会について</a>
       </nav>
     </div>
   </div>

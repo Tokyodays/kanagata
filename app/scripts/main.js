@@ -80,25 +80,6 @@
   ga('create', 'UA-XXXXX-X', 'auto');
   ga('send', 'pageview');
 
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '170269703417592',
-      xfbml      : true,
-      version    : 'v2.8'
-    });
-    FB.AppEvents.logPageView();
-    FB.api(
-      '/tohoku.kanagata',
-      'GET',
-      {
-        "fields":"app_id,access_token,feed{message,story,link,likes,full_picture,name,permalink_url,source,updated_time}",
-        'access_token': '170269703417592|mIDToPYYB1KGV46HhZnhuFbM-U0'
-      },
-      function(response) {
-          console.log(response);
-      }
-    );
-  };
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
      if (d.getElementById(id)) {return;}
@@ -107,25 +88,22 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 
-  fetch('https://script.google.com/macros/s/AKfycbxhy9mroqGpOnMT3JLUSpmdO4FPocOWdYcJY77fRSvpsfSQwrFQ/exec', {
-    mode: 'cors'
-  }).then(function(response) {
-    return response.json();
-  }).then(function(json) {
-    console.log(json);
-  });
-
-  window.onload = function(){
-    var map = new GMaps({
-      div: "#googlemap",
-      lat: 35.710285,
-      lng: 139.77714,
-      zoom: 15,
-    });
-  };
-
 
   riot.compile(function() {
+    var Route = Router.Route,
+      DefaultRoute = Router.DefaultRoute,
+      NotFoundRoute = Router.NotFoundRoute,
+      RedirectRoute = Router.RedirectRoute;
+
+    router.routes([
+      new DefaultRoute({tag: 'k-timeline'}),
+      new Route({path: '/', tag: 'k-timeline'}),
+      new Route({path: '/list/', tag: 'k-list'}),
+      new Route({path: '/maps/', tag: 'k-maps'}),
+      new Route({path: '/aboutus/', tag: 'k-aboutus'})
+    ]);
+
     riot.mount('*');
+    router.start();
   })
 })();

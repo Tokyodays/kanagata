@@ -27,7 +27,7 @@ html, body {
   margin: 0;
   padding: 0;
 }
-.mdl-layout .mdl-layout__tab-panel {
+main {
   padding-top: 65px;
 }
 
