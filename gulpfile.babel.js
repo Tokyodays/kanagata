@@ -37,6 +37,27 @@ import pkg from './package.json';
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
+gulp.task('riot:concat', function () {
+  return gulp.src('app/tags/*.tag')
+    .pipe($.concat('components.tag'))
+    .pipe(gulp.dest('.tmp/riot'));
+});
+gulp.task('riot:shell', ['riot:concat'], function () {
+  return gulp.src('.tmp/riot/components.tag')
+    .pipe($.shell('riot .tmp/riot/components.tag .tmp/riot/components.js --m')); //this is async
+});
+
+gulp.task('riot:sync', function (callback) {
+    runSequence('riot:shell', callback);
+
+});
+
+gulp.task('riot', ['riot:sync'], function () {
+  return gulp.src('.tmp/riot/components.js')
+    .pipe($.concat('components.js'))
+    .pipe(gulp.dest('app/scripts'));
+});
+
 // Lint JavaScript
 gulp.task('lint', () =>
   gulp.src('app/scripts/**/*.js')
@@ -154,7 +175,7 @@ gulp.task('html', () => {
 gulp.task('clean', () => del(['.tmp', 'dist/*', '!dist/.git'], {dot: true}));
 
 // Watch files for changes & reload
-gulp.task('serve', ['scripts', 'styles'], () => {
+gulp.task('serve', ['scripts', 'styles', 'riot'], () => {
   browserSync({
     notify: false,
     // Customize the Browsersync console logging prefix
@@ -173,6 +194,7 @@ gulp.task('serve', ['scripts', 'styles'], () => {
   gulp.watch(['app/styles/**/*.{scss,css}'], ['styles', reload]);
   gulp.watch(['app/scripts/**/*.js'], ['lint', 'scripts', reload]);
   gulp.watch(['app/images/**/*'], reload);
+  gulp.watch(['app/tags/*.tag'], ['riot', reload])
 });
 
 // Build and serve the output from the dist build
