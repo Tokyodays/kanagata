@@ -102,7 +102,7 @@
       new Route({path: '/maps/', tag: 'k-maps'}),
       new Route({path: '/aboutus/', tag: 'k-aboutus'})
     ]);
-
+    
     riot.mount('*');
     router.start();
   })
